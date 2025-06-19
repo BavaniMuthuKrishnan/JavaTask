@@ -1,0 +1,18 @@
+mysql> select s.student_id,s.name,m.subject,m.mark from students s join mark m on s.student_id=m.student_id;
++------------+-------+---------+------+
+| student_id | name  | subject | mark |
++------------+-------+---------+------+
+|          1 | veera | java    |   87 |
+|          2 | bala  | python  |   78 |
+|          3 | mega  | c++     |   80 |
++------------+-------+---------+------+
+3 rows in set (0.00 sec)
+
+    mysql> select s.student_id,s.name,sum(m.marks)as total_mark from students s join marks m on s.student_id=m.student_id group by s.student_id,s.name
+    -> having sum(m.marks)=(select max(total) from(select sum(marks)as total from marks group by student_id)as totals);
++------------+-------+------------+
+| student_id | name  | total_mark |
++------------+-------+------------+
+|          1 | veera |         87 |
++------------+-------+------------+
+1 row in set (0.05 sec)

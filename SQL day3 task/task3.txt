@@ -1,0 +1,33 @@
+mysql> use lidb;
+Database changed
+mysql> select * from librarystaff;
++-----------------+-------------------+
+| librarystaff_id | librarystaff_name |
++-----------------+-------------------+
+|             111 | ragu              |
+|             222 | pallavi           |
+|               3 | ravi              |
++-----------------+-------------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from librarybook;
++---------+---------------------+------------+
+| book_id | book_title          | book_price |
++---------+---------------------+------------+
+|       1 | white tiger         |        500 |
+|       2 | wings of fire       |        600 |
+|       3 | Atale of two cities |        750 |
++---------+---------------------+------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select * from librarybook where book_title like'%white tiger%';
++---------+-------------+------------+
+| book_id | book_title  | book_price |
++---------+-------------+------------+
+|       1 | white tiger |        500 |
++---------+-------------+------------+
+1 row in set (0.00 sec)
+
+mysql> notee

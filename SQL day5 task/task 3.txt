@@ -1,0 +1,48 @@
+mysql> create table customer(
+    -> customer_id int,
+    -> name varchar(50));
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> create table orders( 
+    -> order_id int,
+    -> customer_id int,
+    -> order_date date);
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> insert into customer(customer_id,name) values(1,'ravi'),(2,'meera'),(3,'veera');
+Query OK, 3 rows affected (0.05 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> insert into orders(order_id,customer_id,order_date) values(01,1,'2025-06-01'),(01,2,'2025-06-02'),(03,3,'2025-06-03');
+Query OK, 3 rows affected (0.05 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from customer;
++-------------+-------+
+| customer_id | name  |
++-------------+-------+
+|           1 | ravi  |
+|           2 | meera |
+|           3 | veera |
++-------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select*from orders;
++----------+-------------+------------+
+| order_id | customer_id | order_date |
++----------+-------------+------------+
+|        1 |           1 | 2025-06-01 |
+|        1 |           2 | 2025-06-02 |
+|        3 |           3 | 2025-06-03 |
++----------+-------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select c.name,o.order_id,o.order_date from customer c join orders o on c.customer_id=o.customer_id;
++-------+----------+------------+
+| name  | order_id | order_date |
++-------+----------+------------+
+| ravi  |        1 | 2025-06-01 |
+| meera |        1 | 2025-06-02 |
+| veera |        3 | 2025-06-03 |
++-------+----------+------------+
+3 rows in set (0.00 sec)

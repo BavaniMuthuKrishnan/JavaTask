@@ -1,0 +1,29 @@
+mysql> create table sales(
+    -> sale_id int,
+    -> product_category varchar(50),
+    -> sales_amount int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into sales values(1,'clothing',15000),(2,'electronic',20000),(3,'furniture',10000);
+Query OK, 3 rows affected (0.00 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from sales;
++---------+------------------+--------------+
+| sale_id | product_category | sales_amount |
++---------+------------------+--------------+
+|       1 | clothing         |        15000 |
+|       2 | electronic       |        20000 |
+|       3 | furniture        |        10000 |
++---------+------------------+--------------+
+3 rows in set (0.00 sec)
+mysql> select sale_id,product_category,sum(sales_amount)as total_sales from sales group by sale_id,product_category order by sale_id,product_category;
++---------+------------------+-------------+
+| sale_id | product_category | total_sales |
++---------+------------------+-------------+
+|       1 | clothing         |       15000 |
+|       2 | electronic       |       20000 |
+|       3 | furniture        |       10000 |
++---------+------------------+-------------+
+3 rows in set (0.00 sec)
+

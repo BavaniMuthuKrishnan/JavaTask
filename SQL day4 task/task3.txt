@@ -1,0 +1,29 @@
+mysql> create table products(
+    -> pro_id int,
+    -> pro_name varchar(50),
+    -> price int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into products values(1,'pen',10),(2,'notebook',40),(3,'pencil',5),(4,'bag',500);
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from products;
++--------+----------+-------+
+| pro_id | pro_name | price |
++--------+----------+-------+
+|      1 | pen      |    10 |
+|      2 | notebook |    40 |
+|      3 | pencil   |     5 |
+|      4 | bag      |   500 |
++--------+----------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select max(price)as max_price,min(price)as min_price from products;
++-----------+-----------+
+| max_price | min_price |
++-----------+-----------+
+|       500 |         5 |
++-----------+-----------+
+1 row in set (0.00 sec)
+

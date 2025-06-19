@@ -1,0 +1,60 @@
+mysql> use lidb;
+Database changed
+mysql> create table customers(
+    -> customer_id int,
+    -> name varchar(50),
+    -> city varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> insert into customers values(1,'varun','chennai'),(2,'veera','coimbatore'),(3,'mega','kerala');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select *from customers;
++-------------+-------+------------+
+| customer_id | name  | city       |
++-------------+-------+------------+
+|           1 | varun | chennai    |
+|           2 | veera | coimbatore |
+|           3 | mega  | kerala     |
++-------------+-------+------------+
+3 rows in set (0.00 sec)
+
+mysql> alter table customers add column age int;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update customers set age=23 where name='varun';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update customers set age=20 where name='veera';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update customers set age=21 where name='mega';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from customers;
++-------------+-------+------------+------+
+| customer_id | name  | city       | age  |
++-------------+-------+------------+------+
+|           1 | varun | chennai    |   23 |
+|           2 | veera | coimbatore |   20 |
+|           3 | mega  | kerala     |   21 |
++-------------+-------+------------+------+
+3 rows in set (0.00 sec)
+ 
+mysql> select * from customers where city='coimbatore' and age>20;
+Empty set (0.00 sec)
+
+mysql> select * from customers where city='coimbatore' and age>18;
++-------------+-------+------------+------+
+| customer_id | name  | city       | age  |
++-------------+-------+------------+------+
+|           2 | veera | coimbatore |   20 |
++-------------+-------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> notee

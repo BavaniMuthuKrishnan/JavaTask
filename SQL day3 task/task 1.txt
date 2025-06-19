@@ -1,0 +1,62 @@
+mysql> use stud;
+Database changed
+mysql> select * from student;
++------------+--------------+------+-------+
+| student_id | student_name | age  | grade |
++------------+--------------+------+-------+
+|          1 | veera        |   23 | A     |
+|          2 | ravi         |   20 | B     |
+|          3 | mega         |   20 | A     |
+|          4 | nivetha      |   23 | B     |
+|          5 | vel          |   24 | C     |
++------------+--------------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> alter  table student add column grade int;
+ERROR 1060 (42S21): Duplicate column name 'grade'
+mysql> alter  table student add column marks int;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> update  student set marks=78 where student_id=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  student set marks=89 where student_id=2;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  student set marks=79 where student_id=3;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  student set marks=87 where student_id=4;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update  student set marks=80 where student_id=5;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from  student;
++------------+--------------+------+-------+-------+
+| student_id | student_name | age  | grade | marks |
++------------+--------------+------+-------+-------+
+|          1 | veera        |   23 | A     |    78 |
+|          2 | ravi         |   20 | B     |    89 |
+|          3 | mega         |   20 | A     |    79 |
+|          4 | nivetha      |   23 | B     |    87 |
+|          5 | vel          |   24 | C     |    80 |
++------------+--------------+------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student where marks>80;
++------------+--------------+------+-------+-------+
+| student_id | student_name | age  | grade | marks |
++------------+--------------+------+-------+-------+
+|          2 | ravi         |   20 | B     |    89 |
+|          4 | nivetha      |   23 | B     |    87 |
++------------+--------------+------+-------+-------+
+2 rows in set (0.00 sec)
+
+mysql> notee

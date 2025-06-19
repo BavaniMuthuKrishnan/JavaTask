@@ -1,0 +1,26 @@
+mysql> use list;
+Database changed
+mysql> select*from course;
++-----------+-------------+------------+
+| course_id | course_name | course_fee |
++-----------+-------------+------------+
+|         1 | java        |       5000 |
+|         2 | c++         |       2000 |
+|         3 | python      |       6500 |
+|         4 | SQL         |       6000 |
+|         5 | Linux       |       3000 |
++-----------+-------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select*from course order by course_fee asc;
++-----------+-------------+------------+
+| course_id | course_name | course_fee |
++-----------+-------------+------------+
+|         2 | c++         |       2000 |
+|         5 | Linux       |       3000 |
+|         1 | java        |       5000 |
+|         4 | SQL         |       6000 |
+|         3 | python      |       6500 |
++-----------+-------------+------------+
+5 rows in set (0.00 sec)
+

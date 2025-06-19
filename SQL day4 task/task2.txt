@@ -1,0 +1,32 @@
+mysql> create table emp_details(
+    -> emp_id int,
+    -> emp_name varchar(50),
+    -> department varchar(50),
+    -> salary int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> insert into emp_details values(1,'arun','HR',50000),(2,'varun','IT',3500),(3,'veera','finance',60000),(4,'mega','IT',3500);
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from emp_details;
++--------+----------+------------+--------+
+| emp_id | emp_name | department | salary |
++--------+----------+------------+--------+
+|      1 | arun     | HR         |  50000 |
+|      2 | varun    | IT         |   3500 |
+|      3 | veera    | finance    |  60000 |
+|      4 | mega     | IT         |   3500 |
++--------+----------+------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select department,avg(salary)as avg_salary from emp_details group by department;
++------------+------------+
+| department | avg_salary |
++------------+------------+
+| HR         | 50000.0000 |
+| IT         |  3500.0000 |
+| finance    | 60000.0000 |
++------------+------------+
+3 rows in set (0.00 sec)
+
